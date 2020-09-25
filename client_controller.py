@@ -5,28 +5,28 @@ the server, client pair.
 """
 from cipher import Cipher
 from flask import jsonify
+from client_server_interface import Interface
 import json
 
-class Client:
+class Controller:
     def __init__(self):
         self.__cipher = Cipher()
         self.__clientID = self.__loadClientID()
         self.__serverPublicKey = ""
-        self.__listners = {}
+        self._interface = Interface()
 
     def __loadClientID(self):
         return "TEST ID"
 
-    def __notifyListner(self):
+    def send(self,msg):
+        self._interface.send(status='good',id=self.__clientID,msg='test')
+    
+    def __configure(self):
         pass
 
-    def __send(self,msg):
-        return msg
+    def __recieve(self,msg):
+        pass
 
-    def recieve(self,msg):
-        if self.__serverPublicKey == "":
-            return jsonify(status = "configure")
 
-        
-
-    
+control = Controller()
+control.send('test')

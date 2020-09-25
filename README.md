@@ -9,9 +9,7 @@ to be general and inserted into any enviroment.
 ## Requirements:
 
  - Python3.7 and up
- - Flask
  - PyCryptoDome
- - Linux/Unix Enviroment (Mac OS X is acceptable)
 
 ## Installation:
 
@@ -21,11 +19,7 @@ to be general and inserted into any enviroment.
 > pip3 install -r requirements.txt
 
 ## Running:
-> export FLASK_APP=interface.py
-
-> flask run
+> python3 client_controller.py
 
 
-## Testing:
- Visit localhost:5000/inbox or use postman
 
