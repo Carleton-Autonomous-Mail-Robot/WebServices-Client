@@ -15,7 +15,7 @@ to be general and inserted into any enviroment.
 
 ## Installation:
 
-To install required libraries, run the following commands in WebServices-Client directory:
+ Installing required libraries, run the following commands in WebServices-Client directory:
     
 
 > pip3 install -r requirements.txt
