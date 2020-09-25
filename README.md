@@ -1,9 +1,10 @@
 
 # WebServices-Client
 
-A web client which negotiates with a server.
-All communications are encrypted.
-Communications are in JSON over HTTP
+A web client which facilitates confidential communications with a server.
+All communications are encrypted, client doesn't care what the payload of the message is.
+The payload is passed to another system which handles it. This client server pair, is meant
+to be general and inserted into any enviroment.
 
 ## Requirements:
 
@@ -20,7 +21,8 @@ To install required libraries, run the following commands in WebServices-Client 
 > pip3 install -r requirements.txt
 
 ## Running:
-> export FLASK_APP=main.py
+> export FLASK_APP=interface.py
+
 > flask run
 
 
