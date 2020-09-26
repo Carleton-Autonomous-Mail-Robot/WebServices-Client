@@ -13,7 +13,7 @@ to be general and inserted into any enviroment.
 
 ## Installation:
 
- Installing required libraries, run the following commands in WebServices-Client directory:
+ To install required libraries, run the following commands in WebServices-Client directory:
     
 
 > pip3 install -r requirements.txt
@@ -21,5 +21,12 @@ to be general and inserted into any enviroment.
 ## Running:
 > python3 client_controller.py
 
-
+## Todo:
+ - [ x ] basic client_server_interface
+ - [ x ] basic cipher class
+ - [ x ] client handles responses from server
+ - [ ] key exhange handling
+ - [ ] develop test cases
+ - [ ] develop UML
+ - [ ] passing the payload to the service which uses this client once recieved from server
 
