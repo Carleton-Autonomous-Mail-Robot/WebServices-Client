@@ -13,12 +13,13 @@ to be general and inserted into any enviroment.
 
 ## Installation:
 
- To install required libraries, run the following commands in WebServices-Client directory:
+ To install required libraries, run the following command in WebServices-Client directory:
     
 
 > pip3 install -r requirements.txt
 
 ## Running:
+To run software, run the following command in src directory: 
 > python3 client_controller.py
 
 ## Todo:
