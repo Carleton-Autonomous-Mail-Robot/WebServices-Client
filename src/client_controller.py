@@ -1,7 +1,7 @@
 
-from cipher import Cipher
+from src.cipher import Cipher
 from flask import jsonify
-from client_server_interface import Interface
+from src.client_server_interface import Interface
 import json
 
 """
