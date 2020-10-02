@@ -22,9 +22,9 @@ to be general and inserted into any enviroment.
 > python3 client_controller.py
 
 ## Todo:
- - [ x ] basic client_server_interface
- - [ x ] basic cipher class
- - [ x ] client handles responses from server
+ - [x] basic client_server_interface
+ - [x] basic cipher class
+ - [x] client handles responses from server
  - [ ] key exhange handling
  - [ ] develop test cases
  - [ ] develop UML
