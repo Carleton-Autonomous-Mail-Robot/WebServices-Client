@@ -2,6 +2,7 @@
 from src.cipher import Cipher
 from flask import jsonify
 from src.client_server_interface import Interface
+from src.message_listener import MessageListner
 import json
 
 """
@@ -15,11 +16,12 @@ class Client_Controller:
         Constructor for Client_Controller
         @Author Gabriel Ciolac
     '''
-    def __init__(self):
+    def __init__(self,listner):
         self.__cipher = Cipher()
         self.__clientID = self.__loadClientID()
         self.__serverPublicKey = ""
         self._interface = Interface()
+        self.__messageListener = listner
 
     '''
         Loads ClientID from a configuration file
@@ -41,7 +43,7 @@ class Client_Controller:
         @Author Gabriel Ciolac
     '''
     def send(self,msg):
-        res = self._interface.send(status='good',id=self.__clientID,msg='test')
+        res = self._interface.send(status='good',id=self.__clientID,msg=msg)
         try:
             payload = json.load(res)
         except:
@@ -59,27 +61,19 @@ class Client_Controller:
         if payload['status'] is 'done':
             return True
         elif payload['status'] is 'good':
-            return self.__recieve(payload['package'])
-        elif payload['status'] is 'configure':
-            return self.__configure()
+            return self.__notifyListners(payload['package'])
         return False
         
-    '''
-        Negotiates a key exhange with the server
-        @Author Gabriel Ciolac
-    '''
-    def __configure(self):
-        return True
 
     '''
         Decrypts payload using private key
         
         @Author Gabriel Ciolac
     '''
-    def __recieve(self,msg):
-        return True
+    def __notifyListners(self,msg):
+        try:
+            self.__messageListener(msg)
+            return True
+        except:
+            return False
         
-
-
-control = Client_Controller()
-control.send('test')
