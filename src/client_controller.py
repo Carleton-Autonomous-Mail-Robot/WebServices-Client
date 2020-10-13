@@ -4,6 +4,7 @@ from flask import jsonify
 from src.client_server_interface import Interface
 from src.message_listener import MessageListner
 import json
+from random import randrange
 
 """
 This class is used for the Client in
@@ -28,7 +29,7 @@ class Client_Controller:
         @Author Gabriel Ciolac
     '''
     def __loadClientID(self):
-        return "TEST ID"
+        return randrange(10000000)
 
 
     '''
@@ -42,37 +43,21 @@ class Client_Controller:
 
         @Author Gabriel Ciolac
     '''
-    def send(self,msg):
-        res = self._interface.send(status='good',id=self.__clientID,msg=msg)
+    def send(self,msg,opperation):
+        res = self._interface.send(status='good',id=self.__clientID,opperation=opperation,msg=msg)
         try:
-            payload = json.load(res)
+            return self.__notifyListners(res['payload'])
         except:
             return False
-        return self.__controller(payload)
+       
         
-
     '''
-        Decides what todo next with a server response depending
-        on status.
-
-        @Author Gabriel Ciolac
-    '''
-    def __controller(self,payload):
-        if payload['status'] is 'done':
-            return True
-        elif payload['status'] is 'good':
-            return self.__notifyListners(payload['package'])
-        return False
-        
-
-    '''
-        Decrypts payload using private key
         
         @Author Gabriel Ciolac
     '''
     def __notifyListners(self,msg):
         try:
-            self.__messageListener(msg)
+            self.__messageListener.notify(msg)
             return True
         except:
             return False

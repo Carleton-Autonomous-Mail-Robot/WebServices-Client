@@ -4,7 +4,7 @@ import json
 
 class Dummy_Usecase(MessageListner):
     def __init__(self):
-        self.__hasMessage
+        self.__hasMessage = False
         self.__clientController = Client_Controller(self)
 
     def notify(self,msg):
@@ -19,8 +19,11 @@ class Dummy_Usecase(MessageListner):
             return True
         return False
 
-    def sendGoodMessaage(self):
-        self.__clientController.send(msg=json.load('{"payload" : "good" }'))
+    def sendInit(self):
+        self.__clientController.send(opperation = 'new', msg='')
 
-    def sendBadMessage(self):
-        self.__clientController.send(msg=json.load('{"payload" : "bad" }'))
+    def sendNewMessage(self):
+        self.__clientController.send(opperation = 'leaveMessage', msg='test')
+    
+    def getMessage(self):
+        self.__clientController.send(opperation = 'getMessage',msg='')
