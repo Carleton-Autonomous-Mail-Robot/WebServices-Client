@@ -1,7 +1,7 @@
 
-from src.cipher import Cipher
+from cipher import Cipher
 from flask import jsonify
-from src.client_server_interface import Interface
+from client_server_interface import Interface
 import json
 from random import randrange
 
@@ -28,7 +28,7 @@ class Client_Controller:
         @Author Gabriel Ciolac
     '''
     def __loadClientID(self):
-        return randrange(10000000)
+        return 2
 
 
     '''
@@ -50,10 +50,17 @@ class Client_Controller:
             return False
 
     def getReciever(self)->str:
-        pass
+        if self.__message is None:
+            return ''
+        return self.__message['reciever']
+
     def getSender(self)->str:
-        pass
+        if self.__message is None:
+            return ''
+        return self.__message['sender']
     def getDock(self)->str:
-        pass
+        if self.__message is None:
+            return ''
+        return self.__message['dock']
        
         
