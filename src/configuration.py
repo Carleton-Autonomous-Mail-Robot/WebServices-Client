@@ -11,7 +11,7 @@ class Configuration:
 
     def __save_pickle(self):
         with open('config.pkl','wb') as f:
-            pickle.dump(self)
+            pickle.dump(self,f,pickle.HIGHEST_PROTOCOL)
 
     def getLocation(self):
         pass
