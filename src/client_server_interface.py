@@ -17,7 +17,7 @@ class Interface:
 		@Author Gabriel Ciolac
 	'''
 	def send(self,status,msg,opperation,id):
-		res = requests.post('http://127.0.0.1:5000/', json = {'status':status,'opperation':opperation,'clientID':id, 'payload':msg})
+		res = requests.post('https://provingrounds.ca/', json = {'status':status,'opperation':opperation,'clientID':id, 'payload':msg})
 		print(res.text)
 		return res.json()
 
